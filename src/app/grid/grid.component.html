@@ -1,0 +1,28 @@
+<div class="grid-container">
+  <div
+    class="card"
+    *ngFor="let card of cardContents.slice(startIndex, endIndex)"
+  >
+    <mat-card [appearance]="'raised'">
+      <div class="card-details">
+        <h2 class="title">{{ card.title }}</h2>
+        <p>{{ card.description }}</p>
+        <ul>
+          <li><strong>Type:</strong> {{ card.type }}</li>
+          <li><strong>Time:</strong> {{ card.time }}</li>
+          <li><strong>Date:</strong> {{ card.date }}</li>
+          <li><strong>Duration:</strong> {{ card.duration }}</li>
+          <li><strong>Link:</strong> {{ card.link }}</li>
+        </ul>
+      </div>
+    </mat-card>
+  </div>
+</div>
+<mat-paginator
+  [length]="cardContents.length"
+  [pageSize]="pageSize"
+  [pageSizeOptions]="[5, 10, 25, 50]"
+  (page)="onPageChange($event)"
+  aria-label="Select page"
+>
+</mat-paginator>
